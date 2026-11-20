@@ -34,8 +34,8 @@ What we added for our own team:
 
 | Feature | What it does |
 |---|---|
-| Claude connection (MCP) | Claude reads and writes the CRM. OAuth for the Claude apps, API keys for Claude Code. |
-| Realtimer connection | Our AI assistant for sales calls works with the same CRM. |
+| Claude connection (MCP) | The CRM is an MCP server with 14 tools, so Claude can read it and change it in plain words: find deals, add leads, log emails, create and close tasks, move stages, save lead scores. Every change goes into the record's history under your name. OAuth for the Claude apps, API keys for Claude Code. |
+| Realtimer connection | Realtimer, our AI assistant for sales calls, saves the text of each call to your Realtimer account (Pro plan, no audio). Claude reads the call through the Realtimer connector and updates the deal in ZeroEntry: a summary note, the next steps as tasks, the stage if it changed. |
 | Lead score | A system that reads hiring signals. Claude researches each lead on the web and in the CRM, scores it from 0 to 9 with our rules and writes the angle for the first message. It runs as a Claude skill or as one detailed prompt, and on request it turns the best leads into tasks for the team. |
 | New lead in one window | Paste a LinkedIn link: the CRM fills in the name, warns about duplicates and creates the company, person, deal and first task. |
 | LinkedIn accounts | Built for LinkedIn outreach from many profiles. One SDR can run several LinkedIn accounts: every deal and task keeps the profile the conversation runs from, and you can work one profile at a time. |
@@ -47,6 +47,21 @@ What we added for our own team:
 | Jobs and candidates | Each job has its own candidate pipeline, for recruitment teams. |
 | Import | CSV import that matches Pipedrive and HubSpot export columns. |
 | REST API | API keys for n8n, Make or your own scripts, with upsert to avoid duplicates. |
+
+### Claude and Realtimer
+
+Connecting the CRM to Claude was the main reason we built ZeroEntry. Connect it in Claude (Settings, Connectors, Add custom connector), sign in, and Claude works with the CRM as you, with your role: a viewer can only read.
+
+Claude has 14 tools here. It can search deals, people and companies, list deals by stage, owner or LinkedIn profile, read a whole deal with its history, create deals and leads, update people and companies, add notes, log emails, and create, list and close tasks. Typical requests:
+
+- "Which of my deals have no next step?"
+- "Add a task to call Acme tomorrow at 11."
+- "Log my last email from Maria to her deal."
+- "Score the new deals from this week and create tasks for the best ones."
+
+Claude reads your mail and calendar with its own Gmail and Google Calendar connectors and writes the result here. Emails are matched by message id and calendar events by event id, so a daily run does not create duplicates. Every change Claude makes shows in the record's history under your name, and the changes you make in the app can be undone for 8 seconds.
+
+Realtimer is the AI assistant our team uses on sales calls. On the Pro plan it saves the text of each call to your Realtimer account by default (never the audio, and you can turn it off), and it has its own connector for Claude. With both connected, one request covers the whole follow-up: "Read my call with Northwind and update the deal." Claude finds the call, adds a summary note, turns the agreed next steps into tasks with dates and moves the deal if the stage changed. Realtimer never sends emails; Claude can draft the follow-up for you to check and send.
 
 ### Built for LinkedIn outreach from many profiles
 
