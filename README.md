@@ -36,9 +36,9 @@ What we added for our own team:
 |---|---|
 | Claude connection (MCP) | Claude reads and writes the CRM. OAuth for the Claude apps, API keys for Claude Code. |
 | Realtimer connection | Our AI assistant for sales calls works with the same CRM. |
-| Lead score | Every lead gets a score from 0 to 9 and the angle for the first message. |
+| Lead score | A system that reads hiring signals. Claude researches each lead on the web and in the CRM, scores it from 0 to 9 with our rules and writes the angle for the first message. It runs as a Claude skill or as one detailed prompt, and on request it turns the best leads into tasks for the team. |
 | New lead in one window | Paste a LinkedIn link: the CRM fills in the name, warns about duplicates and creates the company, person, deal and first task. |
-| LinkedIn account on each deal | Shows which of our LinkedIn profiles the conversation came from. |
+| LinkedIn accounts | Built for LinkedIn outreach from many profiles. One SDR can run several LinkedIn accounts: every deal and task keeps the profile the conversation runs from, and you can work one profile at a time. |
 | LinkedIn chats import | Pull every conversation from a LinkedIn profile and turn them into new deals and tasks. |
 | Email logging by BCC | BCC the CRM's address and the email lands on the right person, company and open deal. |
 | Undo instead of "Are you sure?" | Changes happen at once, and you have 8 seconds to undo them. |
@@ -47,6 +47,27 @@ What we added for our own team:
 | Jobs and candidates | Each job has its own candidate pipeline, for recruitment teams. |
 | Import | CSV import that matches Pipedrive and HubSpot export columns. |
 | REST API | API keys for n8n, Make or your own scripts, with upsert to avoid duplicates. |
+
+### Built for LinkedIn outreach from many profiles
+
+Our sales team runs outreach campaigns on LinkedIn from 15 profiles, and one SDR runs two of them. ZeroEntry was built for that way of working: 622 deals in our CRM carry the profile they came from.
+
+What it looks like in the CRM:
+
+- Each deal is tied to the LinkedIn profile the conversation runs from. The deal page shows "via" and the profile, with a link that opens it, so you always know which account to answer from.
+- A new lead takes one window: paste the LinkedIn link, pick the profile, and the CRM creates the company, person, deal and first task under that profile.
+- Tasks take the profile of their deal, so an SDR can finish one profile's tasks before switching to the next.
+- The dashboard has a row per profile for the week: new leads, replies, calls and deals with no next step. Click a row and the board shows only that profile's deals.
+- Profiles live in Settings, with the number of deals on each and a switch to turn off the ones you no longer use. When you paste LinkedIn chats, the CRM lists the senders who are not leads so you can add them as profiles, and one button fills in the profile on older deals from their chats.
+- Claude works by profile through the CRM connector. Ask for the open deals or today's tasks on one profile, or import every conversation from a profile as new deals and tasks.
+
+### Lead scoring
+
+Lead scoring is our hiring rules plus research, and Claude does the research. For each deal it reads the history in the CRM: what the person replied, when, and whether we already work with the company. Then it searches the web for signals: open engineering roles and when they were posted, funding rounds, headcount, where the company is based, layoffs. A role posted in the last 60 days or a round from the last 90 days adds points. An older one adds nothing, so a company that hired last year does not look hot today. Agencies, non-profits and teams under 4 people are rejected outright.
+
+The result goes on the deal: a score from 0 to 9, a verdict, the facts with dates and sources, the angle for the first message and the main risk. Anyone on the team can run it from the CRM settings, as a Claude skill or as one detailed prompt. When you ask, Claude also turns the best leads into follow-up tasks for the deal owners.
+
+In one week of November 2026 it scored 31 new deals. One scored as a maybe, five had open engineering roles, three were agencies, and most of the rest were old LinkedIn conversations with nothing fresh behind them.
 
 ## Speed
 
