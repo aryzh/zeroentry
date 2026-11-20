@@ -39,7 +39,7 @@ What we added for our own team:
 | Lead score | A system that reads hiring signals. Claude researches each lead on the web and in the CRM, scores it from 0 to 9 with our rules and writes the angle for the first message. It runs as a Claude skill or as one detailed prompt, and on request it turns the best leads into tasks for the team. |
 | New lead in one window | Paste a LinkedIn link: the CRM fills in the name, warns about duplicates and creates the company, person, deal and first task. |
 | LinkedIn accounts | Built for LinkedIn outreach from many profiles. One SDR can run several LinkedIn accounts: every deal and task keeps the profile the conversation runs from, and you can work one profile at a time. |
-| LinkedIn chats import | Pull every conversation from a LinkedIn profile and turn them into new deals and tasks. |
+| LinkedIn chats import | Turn every conversation in a LinkedIn profile into deals and tasks, using the data export LinkedIn itself gives every member. Nobody shares a password or installs an extension, and nothing logs into the profile, so there is no bot activity for LinkedIn to flag. |
 | Email logging by BCC | BCC the CRM's address and the email lands on the right person, company and open deal. |
 | Undo instead of "Are you sure?" | Changes happen at once, and you have 8 seconds to undo them. |
 | Duplicate people | Finds people with the same LinkedIn, email, or name at the same company, and merges them. |
@@ -60,6 +60,14 @@ What it looks like in the CRM:
 - The dashboard has a row per profile for the week: new leads, replies, calls and deals with no next step. Click a row and the board shows only that profile's deals.
 - Profiles live in Settings, with the number of deals on each and a switch to turn off the ones you no longer use. When you paste LinkedIn chats, the CRM lists the senders who are not leads so you can add them as profiles, and one button fills in the profile on older deals from their chats.
 - Claude works by profile through the CRM connector. Ask for the open deals or today's tasks on one profile, or import every conversation from a profile as new deals and tasks.
+
+### LinkedIn chats import without touching the profile
+
+Most LinkedIn automation tools need your login or a browser extension that clicks for you. LinkedIn's User Agreement does not allow bots, scrapers or extensions that automate activity on the site, and accounts can be restricted for using them. We wanted every conversation in the CRM without putting a profile at risk.
+
+ZeroEntry uses the export that LinkedIn offers every member. The profile owner opens Settings & Privacy, then Data privacy, then Get a copy of your data, and downloads the archive. It has every conversation in one messages.csv file. Claude reads that file and, through the CRM connector, creates a deal for each lead with the person, the company, a short summary of the conversation, the profile it came from and a follow-up task.
+
+Nobody gets the profile's password, nothing runs inside LinkedIn, and the profile owner decides what to hand over. In November 2026 we brought in 408 deals this way from four of our profiles.
 
 ### Lead scoring
 
