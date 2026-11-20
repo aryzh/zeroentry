@@ -118,7 +118,7 @@ This was one test on one laptop, so treat it as a rough guide. The full test is 
 - Sign-in through Cloudflare Access: Google, GitHub or a code sent by email. The CRM stores no passwords.
 - Roles: admin, member, viewer.
 - Plain JavaScript front end with no build step.
-- A small team fits in Cloudflare's free plan, so there are no seat fees.
+- A small team fits in Cloudflare's free plan, so there are no seat fees. Once you have a few thousand deals, take the Workers Paid plan: $5 a month for the whole account, not per user. It lifts the free plan's limits of 10 ms of CPU per request and 5 million database rows read per day, so big lists, imports and merges do not stop halfway.
 
 ## Get it
 
