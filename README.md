@@ -2,7 +2,7 @@
 
 **The open source CRM that Claude fills in.** Built for B2B teams that sell on LinkedIn and already use Claude.
 
-> The code is not public yet. Star this repo, or click Watch → Custom → Releases, to hear when it lands. Want it sooner? [Ask for early access](../../issues/new?template=early-access.yml).
+> The code is not public yet and will be released under the MIT license. Star this repo, or click Watch → Custom → Releases, to hear when it lands. Want it sooner? [Ask for early access](../../issues/new?template=early-access.yml).
 
 ![ZeroEntry: the CRM filled in by Claude](images/hero.png)
 
@@ -63,7 +63,7 @@ Client names and details are blurred.
 |---|---|---|
 | Price | Free | Paid per user |
 | Where your data lives | Your own Cloudflare account | Pipedrive's cloud |
-| Code | Open source soon | Closed |
+| Code | Open source (MIT) soon | Closed |
 | Opening a screen (median) | 0.18 to 0.33 s | 0.26 to 0.74 s |
 | Opening it again | 0.01 to 0.05 s | 0.19 to 0.71 s |
 | Slowest open in our test | 0.46 s | 5.7 s |
@@ -102,7 +102,7 @@ I timed both on the same laptop, in Chrome, on the same network and the same day
 
 - [x] Running in production for our sales team
 - [x] Claude connection, LinkedIn profiles, lead scoring
-- [ ] Public code under an open source license
+- [ ] Public code under the MIT license
 - [ ] One-click Deploy to Cloudflare
 - [ ] Setup guide for teams moving from Pipedrive or HubSpot
 
