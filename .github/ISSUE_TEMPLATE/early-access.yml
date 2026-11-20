@@ -1,0 +1,53 @@
+name: Early access
+description: Ask to try ZeroEntry before the code is public
+title: "Early access: "
+labels: ["early access"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in ZeroEntry. Tell us a little about your team and we'll get back to you here. Please don't post emails or phone numbers: this issue is public.
+  - type: input
+    id: company
+    attributes:
+      label: Company or team
+      placeholder: e.g. Acme, 6-person sales team
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: How many people would use the CRM?
+      options:
+        - "1"
+        - 2 to 5
+        - 6 to 20
+        - More than 20
+    validations:
+      required: true
+  - type: dropdown
+    id: from
+    attributes:
+      label: What do you use now?
+      options:
+        - Pipedrive
+        - HubSpot
+        - Spreadsheets
+        - Another CRM
+        - Nothing yet
+    validations:
+      required: true
+  - type: checkboxes
+    id: use
+    attributes:
+      label: What would you use it for?
+      options:
+        - label: Claude working inside the CRM
+        - label: LinkedIn outreach from several profiles
+        - label: Lead scoring
+        - label: Realtimer calls
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: What you'd need before moving to ZeroEntry.
